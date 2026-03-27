@@ -13,11 +13,13 @@ class SearchEverywhereFixer : SearchEverywhereReorderingService {
         tabID: String,
         items: MutableList<SearchEverywhereFoundElementInfo>
     ) {
-        items.sortBy { item ->
-            when (item.contributor.searchProviderId) {
-                "ClassSearchEverywhereContributor" -> 0
-                else -> 1
-            }
-        }
+        items.sortWith(
+            compareBy<SearchEverywhereFoundElementInfo> { item ->
+                when (item.contributor.searchProviderId) {
+                    "ClassSearchEverywhereContributor" -> 0
+                    else -> 1
+                }
+            }.thenByDescending { it.priority }
+        )
     }
 }
