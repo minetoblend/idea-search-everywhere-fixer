@@ -1,15 +1,13 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.minetoblend.ideasearcheverywherefixer</id>
-    <name>idea-search-everywhere-fixer</name>
+    <name>Search-Everywhere Fixer</name>
     <vendor>minetoblend</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.minetoblend.ideasearcheverywherefixer.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.minetoblend.ideasearcheverywherefixer.startup.MyProjectActivity" />
+        <!--suppress PluginXmlValidity -->
+        <searchEverywhereReorderingService implementation="com.github.minetoblend.ideasearcheverywherefixer.services.SearchEverywhereFixer"/>
     </extensions>
 </idea-plugin>
