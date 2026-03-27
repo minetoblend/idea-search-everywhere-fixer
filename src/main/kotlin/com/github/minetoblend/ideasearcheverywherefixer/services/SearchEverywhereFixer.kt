@@ -13,8 +13,8 @@ class SearchEverywhereFixer : SearchEverywhereReorderingService {
         tabID: String,
         items: MutableList<SearchEverywhereFoundElementInfo>
     ) {
-        items.sortBy {
-            when (it.contributor.searchProviderId) {
+        items.sortBy { item ->
+            when (item.contributor.searchProviderId) {
                 "ClassSearchEverywhereContributor" -> 0
                 else -> 1
             }
